@@ -1,1 +1,0 @@
-const palettes = require('nice-color-p')
