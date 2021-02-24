@@ -18,5 +18,8 @@
   "homepage": "https://github.com/cameck/todays-palette#readme",
   "devDependencies": {
     "prettier": "2.2.1"
+  },
+  "dependencies": {
+    "nice-color-palettes": "^3.0.0"
   }
 }
