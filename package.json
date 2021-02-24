@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cameck/todays-palette/issues"
   },
-  "homepage": "https://github.com/cameck/todays-palette#readme"
+  "homepage": "https://github.com/cameck/todays-palette#readme",
+  "devDependencies": {
+    "prettier": "2.2.1"
+  }
 }
