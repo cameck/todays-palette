@@ -17,12 +17,14 @@
   "bugs": {
     "url": "https://github.com/cameck/todays-palette/issues"
   },
+  "private": true,
   "homepage": "https://github.com/cameck/todays-palette#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.2",
     "eslint": "^7.20.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "html-webpack-plugin": "^5.2.0",
     "prettier": "2.2.1",
