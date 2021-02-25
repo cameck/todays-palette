@@ -8,12 +8,16 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'assets/[name][ext][query]',
+
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
       title: "Today's Palette",
       template: './src/index.html',
+      favicon: './src/assets/favicon.ico',
+
     }),
   ],
   devServer: {
@@ -26,7 +30,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|webmanifest|ico)$/i,
         type: 'asset/resource',
       },
       {
