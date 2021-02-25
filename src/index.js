@@ -1,5 +1,7 @@
-import palettes from 'nice-color-palettes/500';
+import palettes from 'nice-color-palettes';
 import tinyColor from 'tinycolor2';
+
+import lisaPalettes from './data/colorLisa.json';
 
 import './assets/android-chrome-192x192.png';
 import './assets/android-chrome-512x512.png';
@@ -9,6 +11,9 @@ import './assets/favicon-32x32.png';
 import './assets/favicon.ico';
 import './assets/site.webmanifest';
 import './style.css';
+
+const lisaArr = Object.keys(lisaPalettes).map((palette) => lisaPalettes[palette]);
+const allPalettes = palettes.concat(lisaArr);
 
 const makeDiv = (color, body) => {
   const newDiv = document.createElement('div');
@@ -26,7 +31,7 @@ const makeDiv = (color, body) => {
 
 const init = () => {
   const body = document.getElementsByTagName('body')[0];
-  const palette = palettes[Math.floor(Math.random() * palettes.length)];
+  const palette = allPalettes[Math.floor(Math.random() * allPalettes.length)];
   palette.map((color) => makeDiv(color, body));
 };
 
