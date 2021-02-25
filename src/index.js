@@ -58,8 +58,8 @@ const addRefreshButton = (body) => {
 
 const init = () => {
   const body = document.getElementsByTagName("body")[0];
-  addRefreshButton(body);
   yayPalette().map((color) => makeDiv(color, body));
+  addRefreshButton(body);
 };
 
 init();
