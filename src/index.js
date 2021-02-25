@@ -1,22 +1,31 @@
-import palettes from 'nice-color-palettes/500';
-import tinyColor from 'tinycolor2';
+import palettes from "nice-color-palettes";
+import tinyColor from "tinycolor2";
 
-import './assets/android-chrome-192x192.png';
-import './assets/android-chrome-512x512.png';
-import './assets/apple-touch-icon.png';
-import './assets/favicon-16x16.png';
-import './assets/favicon-32x32.png';
-import './assets/favicon.ico';
-import './assets/site.webmanifest';
-import './style.css';
+import lisaPalettes from "./data/colorLisa.json";
+
+import "./assets/android-chrome-192x192.png";
+import "./assets/android-chrome-512x512.png";
+import "./assets/apple-touch-icon.png";
+import "./assets/favicon-16x16.png";
+import "./assets/favicon-32x32.png";
+import "./assets/favicon.ico";
+import "./assets/site.webmanifest";
+import "./style.css";
+
+const darkText = "#0f0f0f";
+const lightText = "#fff";
+
+const lisaArr = Object.keys(lisaPalettes).map(
+  (palette) => lisaPalettes[palette]
+);
+const allPalettes = palettes.concat(lisaArr);
 
 const makeDiv = (color, body) => {
-  const newDiv = document.createElement('div');
-  const newP = document.createElement('p');
+  const newDiv = document.createElement("div");
+  const newP = document.createElement("p");
   newP.innerHTML = color;
-  const isLight = tinyColor(color).isLight();
-  if (isLight) {
-    newP.style.color = '#0f0f0f';
+  if (tinyColor(color).isLight()) {
+    newP.style.color = darkText;
   }
 
   newDiv.appendChild(newP);
@@ -24,10 +33,33 @@ const makeDiv = (color, body) => {
   body.appendChild(newDiv);
 };
 
+const yayPalette = () =>
+  allPalettes[Math.floor(Math.random() * allPalettes.length)];
+
+const updatePage = (body) => {
+  const divs = body.querySelectorAll("div");
+  const newPalette = yayPalette();
+
+  divs.forEach((div, i) => {
+    // eslint-disable-next-line no-param-reassign
+    div.style.background = newPalette[i];
+    const p = div.querySelector("p");
+    p.innerHTML = newPalette[i]; // will break if we add new stuff to area
+    p.style.color = tinyColor(newPalette[i]).isLight() ? darkText : lightText;
+  });
+};
+
+const addRefreshButton = (body) => {
+  const button = document.createElement("button");
+  button.innerHTML = "refresh  💦";
+  button.addEventListener("click", () => updatePage(body));
+  body.appendChild(button);
+};
+
 const init = () => {
-  const body = document.getElementsByTagName('body')[0];
-  const palette = palettes[Math.floor(Math.random() * palettes.length)];
-  palette.map((color) => makeDiv(color, body));
+  const body = document.getElementsByTagName("body")[0];
+  addRefreshButton(body);
+  yayPalette().map((color) => makeDiv(color, body));
 };
 
 init();
