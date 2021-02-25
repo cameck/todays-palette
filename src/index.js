@@ -41,6 +41,7 @@ const updatePage = (body) => {
   const newPalette = yayPalette();
 
   divs.forEach((div, i) => {
+    // eslint-disable-next-line no-param-reassign
     div.style.background = newPalette[i];
     const p = div.querySelector("p");
     p.innerHTML = newPalette[i]; // will break if we add new stuff to area
@@ -51,7 +52,7 @@ const updatePage = (body) => {
 const addRefreshButton = (body) => {
   const button = document.createElement("button");
   button.innerHTML = "refresh  💦";
-  button.addEventListener("click", (_event) => updatePage(body));
+  button.addEventListener("click", () => updatePage(body));
   body.appendChild(button);
 };
 
