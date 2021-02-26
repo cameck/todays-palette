@@ -9,7 +9,7 @@ div {
 
 p {
   color: white;
-  font: 2.5em Monaco, Mono-Space;
+  font: 2.5em "Poiret One", cursive;
   margin: 0;
   padding: 20px;
 }
@@ -20,7 +20,7 @@ button {
   border-radius: 0;
   color: #696969;
   cursor: pointer;
-  font-size: 2.5em;
+  font: 2.5em "Poiret One", cursive;
   height: 10vh;
   padding: 1rem;
   width: 100%;
