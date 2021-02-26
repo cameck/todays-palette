@@ -34,7 +34,9 @@ const makeDiv = (color, body) => {
 };
 
 const yayPalette = () =>
-  allPalettes[Math.floor(Math.random() * allPalettes.length)];
+  allPalettes[Math.floor(Math.random() * allPalettes.length)].map((p) =>
+    p.toLowerCase()
+  );
 
 const updatePage = (body) => {
   const divs = body.querySelectorAll("div");
